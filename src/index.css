@@ -1,0 +1,477 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Polices personnalisables */
+  .font-inter { font-family: 'Inter', sans-serif; }
+  .font-poppins { font-family: 'Poppins', sans-serif; }
+  .font-roboto { font-family: 'Roboto', sans-serif; }
+}
+
+/* Perfect responsive design with optimized breakpoints */
+@media (max-width: 640px) {
+  /* Small mobile adjustments - Perfect icon and element alignment */
+  .grid-cols-1.sm\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  /* Ensure proper spacing and alignment on small screens */
+  .flex.items-center.space-x-3 {
+    gap: 0.5rem;
+  }
+  
+  .flex.items-center.space-x-4 {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile optimizations for fixed elements and perfect alignment */
+  .fixed.bottom-24.right-6 {
+    bottom: 4rem;
+    right: 1rem;
+    width: calc(100vw - 2rem);
+    max-width: 350px;
+  }
+  
+  /* Ensure proper mobile spacing with perfect alignment */
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Perfect responsive grid layout */
+  .grid-cols-1.md\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  /* Improved flex layouts for mobile */
+  .flex.flex-col.sm\:flex-row {
+    gap: 1rem;
+  }
+  
+  /* Better button alignment on mobile */
+  .flex.flex-wrap.gap-2 {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Tablet optimizations with perfect alignment */
+  .sidebar-compact {
+    width: 4rem;
+  }
+  
+  .content-expanded {
+    margin-left: 4rem;
+  }
+  
+  /* Ensure proper spacing on tablets */
+  .gap-4.lg\:gap-6 {
+    gap: 1rem;
+  }
+}
+
+/* Smooth animations for better UX and perfect transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.2s ease-out;
+}
+
+/* Modern scrollbar for better visual consistency */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #cbd5e1, #94a3b8);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #94a3b8, #64748b);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #475569, #334155);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #64748b, #475569);
+}
+
+/* Enhanced glass morphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Modern shadow system with perfect depth */
+.shadow-modern {
+  box-shadow: 
+    0 2px 4px -1px rgba(0, 0, 0, 0.08),
+    0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-modern-lg {
+  box-shadow: 
+    0 8px 12px -3px rgba(0, 0, 0, 0.08),
+    0 3px 4px -2px rgba(0, 0, 0, 0.03);
+}
+
+.shadow-modern-xl {
+  box-shadow: 
+    0 16px 20px -5px rgba(0, 0, 0, 0.08),
+    0 6px 8px -5px rgba(0, 0, 0, 0.02);
+}
+
+/* Improved transitions for better performance and smoothness */
+.transition-all {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus states for accessibility with perfect alignment */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgb(59, 130, 246);
+  outline-offset: 2px;
+  border-color: rgb(59, 130, 246);
+}
+
+/* Hover effects for interactive elements with perfect alignment */
+.hover-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.12);
+}
+
+/* Perfect responsive design improvements */
+@media (min-width: 1280px) {
+  /* Large screen optimizations with perfect spacing */
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .xl\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Accessibility improvements with perfect contrast */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support with perfect visibility */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid currentColor;
+  }
+  
+  button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Print styles for better document printing */
+@media print {
+  .sidebar, .header, .fixed {
+    display: none !important;
+  }
+  
+  .content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Enhanced text readability with perfect typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Better button and input consistency with perfect alignment */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Improved form field spacing with perfect alignment */
+.form-group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Perfect flex and grid utilities for consistent alignment */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Responsive text utilities with perfect scaling */
+.text-responsive {
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+}
+
+.text-responsive-lg {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+}
+
+.text-responsive-xl {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+/* Perfect container utilities for consistent layouts */
+.container-responsive {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding: 0 2rem;
+  }
+}
+
+/* Perfect spacing utilities for consistent design */
+.space-responsive > * + * {
+  margin-top: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.gap-responsive {
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* Enhanced interactive states with perfect feedback */
+.interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.interactive:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Perfect dropdown and modal z-index management */
+.dropdown-menu {
+  z-index: 50;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .dropdown-menu {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.modal-overlay {
+  z-index: 60;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  z-index: 61;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .modal-content {
+  background: #1f2937;
+  border: 1px solid #374151;
+}
